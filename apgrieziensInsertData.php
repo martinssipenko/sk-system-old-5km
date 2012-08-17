@@ -2,8 +2,8 @@
 
 include_once 'data.inc.php';
 
-mysql_connect("localhost", "skunenieki", "LMTGSMl565921");
-mysql_select_db("skunenieki");
+mysql_connect("", "", "");
+mysql_select_db("");
 
 function checkSta($numurs) {
     $result = mysql_query("SELECT sta FROM apgrieziens WHERE num = '$numurs' AND sta != '0'");
