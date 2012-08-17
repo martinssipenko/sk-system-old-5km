@@ -2,8 +2,8 @@
 
 include_once 'data.inc.php';
 
-mysql_connect("", "", "");
-mysql_select_db("");
+mysql_connect($host, $user, $pass);
+mysql_select_db($dbName);
 
 function checkSta($numurs) {
     $result = mysql_query("SELECT sta FROM apgrieziens WHERE num = '$numurs' AND sta != '0'");
