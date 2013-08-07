@@ -27,19 +27,19 @@ $check[1] = checkApg($_POST['numurs']);
 if (!$check[0]) {
     $error['style'] = "border: 3px solid; border-color:#FF0000;";
     $error['msg'] = "<span style=\"color:#FF0000;\"><b>Šāds numurs nav startējis! (Dati netika pierakstīti datu bāzē)</b></span>";
-    include 'apgrieziensForm.php';
+    include 'index.php';
 }
 
 if (!$check[1]) {
     $error['style'] = "border: 3px solid; border-color:#FF0000;";
     $error['msg'] = "<span style=\"color:#FF0000;\"><b>Šim numuram apgrieziens jau ir reģistrēts!</b></span>";
-    include 'apgrieziensForm.php';
+    include 'index.php';
 }
 
 if ($check[0] && $check[1]) {
     $laiks = -(mktime($hour, 0, 0, $month, $day, $year) - time());
     mysql_query("UPDATE apgrieziens SET apg = '$laiks' WHERE num = '".$_POST['numurs']."'");
-    header('Location: apgrieziensForm.php');
+    header('Location: index.php');
 }
 
 //mysql_close();
