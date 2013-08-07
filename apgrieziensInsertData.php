@@ -37,7 +37,7 @@ if (!$check[1]) {
 }
 
 if ($check[0] && $check[1]) {
-    $laiks = time() - mktime($hour, 0, 0, $month, $day, $year);
+    $laiks = -(mktime($hour, 0, 0, $month, $day, $year) - time());
     mysql_query("UPDATE apgrieziens SET apg = '$laiks' WHERE num = '".$_POST['numurs']."'");
     header('Location: apgrieziensForm.php');
 }
